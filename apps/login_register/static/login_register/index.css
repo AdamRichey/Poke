@@ -1,0 +1,15 @@
+#register{
+    display: inline-block;  
+    border-style: solid;
+    padding: 10px 10px 10px 10px;
+}
+
+#login{
+    display: inline-block;
+    vertical-align: top;
+    border-style: solid;
+    padding: 10px 10px 10px 10px;
+}
+input{
+    display: block;
+}

@@ -1,0 +1,33 @@
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{% static 'login_register/welcome.css' %}">
+    <title>Main</title>
+</head>
+
+<a href=/logout>Logout</a>
+
+<h1>Hello! {{users.name}}</h1>
+<p>You've been poked {{users.pokee.count}} times</p>
+
+<table style="width:100%">
+    <tr>
+    <th>Name</th>
+    <th>Username</th>
+    <th>Poke History</th> 
+    <th>Action</th>
+    </tr>
+    {%for user in tables%}
+        <form action=/poke/{{user.id}} method='post'>
+            {% csrf_token %}
+            <tr>
+                <td>{{user.name}} {{user.id}}</td>
+                <td>{{user.username}}</td> 
+                <td>{{user.pokee.count}}</td>
+                <td><input type=submit value='poke'></td>
+            </tr>
+        </form>
+    {% endfor %}
+</table>
